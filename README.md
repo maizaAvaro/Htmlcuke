@@ -43,6 +43,7 @@ After do |scenario|
       screenshot = "./results/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
     end
+  end
 end
 ```
 
