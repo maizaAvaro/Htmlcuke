@@ -30,7 +30,8 @@ The --out assumes you will output the .html files to the reports directory under
 
 A sample after hook in hooks.rb would be:
 
-```After do |scenario|
+```ruby
+After do |scenario|
   Dir::mkdir('reports') unless File.directory?('reports')
   Dir::mkdir('reports/screens') unless File.directory?('reports/screens')
   if scenario.failed?
@@ -40,7 +41,8 @@ A sample after hook in hooks.rb would be:
     else
       screenshot = "./results/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
-    end```
+    end
+    ```
 
 ## Contributing
 
