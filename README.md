@@ -1,7 +1,7 @@
 # Htmlcuke
 
 A custom Html formatter for Cucumber that provides specific functionality.
-This formatter removes (if necessary) any color codes wrapped around puts statements within a suite that is using the colorized or similar gem.
+This formatter removes (if necessary) any color codes wrapped around puts statements within a suite that is using the ```colorized``` or similar gem.
 The formatter also embeds a screenshot link of the last window focused in a failed test and opens the shot in a new tab upon clicking the link.
 
 ## Installation
@@ -19,8 +19,6 @@ Or install it yourself as:
     $ gem install htmlcuke
 
 ## Usage
-
-To use:
 
 This usage case assumes you have the directories ```reports``` and ```reports/screens``` located in the same directory within which your test will run.
 
@@ -44,7 +42,9 @@ After do |scenario|
     else
       screenshot = "./results/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
-    end```
+    end
+end
+```
 
 ## Contributing
 

@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.platform      = Gem::Platform::RUBY
   spec.authors       = ["Nathan Ray"]
   spec.email         = ["ntray1@gmail.com"]
-  spec.summary       = %q{Cucumber formatter that works to provide html reports for specific automation needs}
-  spec.description   = %q{This is for the reporting needs given to me while working at my current company}
-  spec.homepage      = ""
+  spec.summary       = %q{See https://github.com/maizaAvaro/Htmlcuke for a description and usage case}
+  spec.description   = %q{}
+  spec.homepage      = "https://github.com/maizaAvaro/Htmlcuke"
   spec.license       = "MIT"
 
   spec.add_dependcy 'cucumber'
