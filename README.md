@@ -1,6 +1,6 @@
 # Htmlcuke
 
-A custom html formatter for cucumber that meets the specific needs for the
+A custom html formatter for Cucumber that meets the specific needs for the
 company at which I currently work.
 
 ## Installation
@@ -21,7 +21,7 @@ Or install it yourself as:
 
 To use:
 
-Add --format Htmlcuke::Formatter --out reports
+Add ```--format Htmlcuke::Formatter --out reports```
 
 ## Contributing
 
