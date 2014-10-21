@@ -24,7 +24,10 @@ To use:
 
 This usage case assumes you have the directories ```reports``` and ```reports/screens``` located in the same directory within which your test will run.
 
-Add ```--format Htmlcuke::Formatter --out reports/cucumber_$(date '+%Y.%m.%d-%H.%M.%S').html``` to your cucumber.yml, Rakefile, or command line arguments.
+Add this line to your cucumber.yml, Rakefile, or command line arguments:
+```
+--format Htmlcuke::Formatter --out reports/cucumber_$(date '+%Y.%m.%d-%H.%M.%S').html
+```
 
 The --out assumes you will output the .html files to the reports directory under the naming convention cucumber + timestamp, feel free to change this as you see fit.
 
@@ -41,8 +44,7 @@ After do |scenario|
     else
       screenshot = "./results/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
-    end
-    ```
+    end```
 
 ## Contributing
 
