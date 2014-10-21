@@ -16,7 +16,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'cucumber'
 
-  s.post_install_message = <<-EOS
+  spec.post_install_message = <<-EOS
 
   -------------------------------------------
   | To use this formatter:                  |
