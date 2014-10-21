@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/maizaAvaro/Htmlcuke"
   spec.license       = "MIT"
 
-  spec.add_dependcy 'cucumber'
+  spec.add_dependency 'cucumber'
 
   s.post_install_message = <<-EOS
 
