@@ -37,10 +37,8 @@ After do |scenario|
   Dir::mkdir('reports/screens') unless File.directory?('reports/screens')
   if scenario.failed?
     if scenario.respond_to?('scenario_outline')
-      screenshot = "./results/FAILED_#{(scenario.scenario_outline.title + ' ' + scenario.name).gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{(scenario.scenario_outline.title + ' ' + scenario.name).gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
     else
-      screenshot = "./results/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
     end
   end
