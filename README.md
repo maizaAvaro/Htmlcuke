@@ -41,6 +41,7 @@ After do |scenario|
     else
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
     end
+    embed(File.expand_path(screenshot_format), 'image/png', 'Failed Screenshot')
   end
 end
 ```
