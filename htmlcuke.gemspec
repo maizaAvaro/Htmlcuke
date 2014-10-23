@@ -22,8 +22,8 @@ Gem::Specification.new do |spec|
   | To use this formatter:                  |
   |                                         |
   | Add --format 'Htmlcuke::Formatter' to   |
-  | to your cucumber.yml, Rakefile, or on   |
-  | the command line after your arguments   |
+  | your cucumber.yml, Rakefile, or on the  |
+  | command line after your arguments       |
   -------------------------------------------
 
 EOS
