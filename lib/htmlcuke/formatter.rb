@@ -82,9 +82,9 @@ require 'cucumber/formatter/html'
     $("#hide_pending").attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
 
     $("#hide_pending").hover(function() {
-      $("#hide_pending").attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
-      $("#hide_pending").attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
-    });
+          $("#hide_pending").attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $("#hide_pending").attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
+        });
 
     $("#hide_pending").click(function() {
       var $this = $(this);
@@ -92,9 +92,17 @@ require 'cucumber/formatter/html'
       if($this.hasClass('hide_pending')){
         $this.text('Hide Pending');
         $(PENDING_SCENARIOS).siblings().show();
+        $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
+        });
       } else {
         $this.text('Show Pending');
         $(PENDING_SCENARIOS).siblings().hide();
+         $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #294A4F;");
+        });
       }
     });
 
@@ -111,9 +119,18 @@ require 'cucumber/formatter/html'
       if($this.hasClass('hide_failing')){
         $this.text('Hide Failing');
         $(FAILED_SCENARIOS).siblings().show();
+        $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
+        });
       } else {
         $this.text('Show Failing');
+        $this.css("background-color", "#46b90a !important");
         $(FAILED_SCENARIOS).siblings().hide();
+        $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #294A4F;");
+        });
       }
     });
 
@@ -130,9 +147,18 @@ require 'cucumber/formatter/html'
       if($this.hasClass('hide_passing')){
         $this.text('Hide Passing');
         $(PASSED_SCENARIOS).siblings().show();
+        $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #2DB6CF;");
+        });
       } else {
         $this.text('Show Passing');
+        $this.css("background", "#46b90a !important");
         $(PASSED_SCENARIOS).siblings().hide();
+        $this.hover(function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #46b98a;")}, function() {
+          $this.attr("style", "margin-right: 1em; border: 0 none; border-radius: 6px 6px 6px 6px; color: #FFFFFF; cursor: pointer; display: inline-block; font-family: Arial,sans-serif; font-size: 12px; font-weight: bold; line-height: 20px; margin-bottom: 0; margin-top: 10px; padding: 7px 10px; text-transform: none; transition: all 0.3s ease 0s; -moz-transition: all 0.3s ease 0s; -webkit-transition: all 0.3s ease 0s; width: auto; text-align: center; background: none repeat scroll 0 0 #294A4F;");
+        });
       }
     });
 
@@ -149,7 +175,7 @@ require 'cucumber/formatter/html'
     $('#'+element_id).css('background', '#FAF834');
     $('#'+element_id).css('color', '#000000');
   }
-
+  
         EOF
       end
 
