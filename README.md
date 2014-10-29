@@ -24,7 +24,7 @@ This usage case assumes you have the directories ```reports``` and ```reports/sc
 
 Add this line to your cucumber.yml, Rakefile, or command line arguments:
 ```
---format Htmlcuke::Formatter --out reports/cucumber_$(date '+%Y.%m.%d-%H.%M.%S').html
+--format Htmlcuke::Formatter --out reports/cucumber_$(date '+%m-%d-%Y_%H.%M.%S').html
 ```
 
 The --out assumes you will output the .html files to the reports directory under the naming convention cucumber + timestamp, feel free to change this as you see fit.
