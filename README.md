@@ -1,4 +1,4 @@
-# Htmlcuke
+# Htmlcuke [![htmlcuke API Documentation](https://www.omniref.com/ruby/gems/htmlcuke.png)](https://www.omniref.com/ruby/gems/htmlcuke)
 
 A custom Html formatter for Cucumber that provides specific functionality.
 This formatter removes (if necessary) any color codes wrapped around puts statements within a suite that is using the ```colorized``` or similar gem.
