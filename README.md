@@ -2,7 +2,7 @@
 
 A custom Html formatter for Cucumber that provides specific functionality.
 This formatter removes (if necessary) any color codes wrapped around puts statements within a suite that is using the ```colorized``` or similar gem - as those codes will show up in your html report otherwise.
-The formatter also embeds a screenshot link of the last window focused in a failed test and opens the shot in a new tab upon clicking the link as well as providing custom buttons with hover and switch-text click functionality to hide/show all pending, failed, or passed tests.
+The formatter also embeds a screenshot link of the last window focused in a failed test and opens the shot in a new tab upon clicking the link, as well as providing custom buttons with hover and switch-text click functionality to hide/show all pending, failed, or passed tests.
 
 ## Installation
 
