@@ -38,11 +38,26 @@ After do |scenario|
   if scenario.failed?
     if scenario.respond_to?('scenario_outline')
       screenshot_format = "./reports/screens/FAILED_#{(scenario.scenario_outline.title + ' ' + scenario.name).gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
+      screenshot_embed = "./screens/FAILED_#{(scenario.scenario_outline.title + ' ' + scenario.name).gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
     else
       screenshot_format = "./reports/screens/FAILED_#{scenario.name.gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
+      screenshot_embed = "./screens/FAILED_#{(scenario.scenario_outline.title + ' ' + scenario.name).gsub(' ','_').gsub(/[^0-9A-Za-z_]/, '')}.png"
+
     end
-    embed(File.expand_path(screenshot_format), 'image/png', 'Failed Screenshot')
+    embed(screenshot_embed, 'image/png', 'Failed Screenshot')
   end
+end
+```
+
+## Rake Task
+
+Here is a sample rake task that can be used in conjunction with a tool like Jenkins - just make sure to archive the directories for the
+output of your reports and screens in the job configuration.
+
+```ruby
+Cucumber::Rake::Task.new :mobile_ios_smoke_test, 'Run Cucumber smoke tests on mobile ios emulator' do |t|
+  t.profile = 'automation-wip --tags ~@wip --tags ~@feature --tags @mocked'
+  t.cucumber_opts = ['DEVICE=sim_ios', 'features/smoke', '--format Htmlcuke::Formatter', "--out reports/cucumber_$(date '+%m-%d-%Y_%H.%M.%S').html", '--format pretty', '--guess']
 end
 ```
 

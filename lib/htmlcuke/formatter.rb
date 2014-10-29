@@ -16,6 +16,10 @@ require 'cucumber/formatter/html'
       end
 
       def embed_image(src, label)
+        modified_src = src
+        modified_src = modified_src.split(',')
+        modified_src = modified_src.drop(1) unless modified_src.size != 2
+        modified_src = modified_src[0]
         id = "img_#{@img_id}"
         @img_id += 1
         @builder.span(:class => 'embed') do |pre|
