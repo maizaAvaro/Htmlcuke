@@ -23,7 +23,7 @@ require 'cucumber/formatter/html'
         id = "img_#{@img_id}"
         @img_id += 1
         @builder.span(:class => 'embed') do |pre|
-          pre << %{<a href="" onclick="img=document.getElementById('#{id}'); img.style.display = 'none'; window.open('file://#{src}', '_blank');return false">#{label}</a><br>&nbsp;
+          pre << %{<a href="" onclick="img=document.getElementById('#{id}'); img.style.display = 'none'; window.open('#{modified_src}', '_blank');return false">#{label}</a><br>&nbsp;
           <img id="#{id}" style="display: none" src="#{src}"/>} unless label == 'Screenshot' # if you want the image to show up on the same page change to: img.style.display = (img.style.display == 'none' ? 'block' : 'none')
         end
       end
