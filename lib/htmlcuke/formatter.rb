@@ -1,75 +1,74 @@
 require 'cucumber/formatter/html'
 
-module Cucumber
-  module Formatter
-    class CustomHtml < Cucumber::Formatter::Html
+module Htmlcuke
+  class Formatter < Cucumber::Formatter::Html
 
-      def print_messages
-        return if @delayed_messages.empty?
+    def print_messages
+      return if @delayed_messages.empty?
 
-        @delayed_messages.each do |msg|
-          @builder.li(:class => 'step message') do
-            modified_msg = msg
-            modified_msg.to_s.gsub!(/\[[0-9;]*m/, '') # Remove color codes from colorizer/puts for HTML format only
-            @builder << modified_msg
-          end
-        end
-        empty_messages
-      end
-
-      def embed_image(src, label)
-        id = "img_#{@img_id}"
-        modified_src = src
-        modified_src = modified_src.split(',')
-        modified_src = modified_src.drop(1) unless modified_src.size != 2
-        modified_src = modified_src[0]
-        @img_id += 1
-        @builder.span(:class => 'embed') do |pre|
-          pre << %{<a href="" onclick="img=document.getElementById('#{id}'); img.style.display = 'none'; window.open('#{modified_src}', '_blank');return false">#{label}</a><br>&nbsp;
-          <img id="#{id}" style="display: none" src="#{modified_src}"/>} unless label == 'Screenshot' # if you want the image to show up on the same page change to: img.style.display = (img.style.display == 'none' ? 'block' : 'none')
+      @delayed_messages.each do |msg|
+        @builder.li(:class => 'step message') do
+          modified_msg = msg
+          modified_msg.to_s.gsub!(/\[[0-9;]*m/, '') # Remove color codes from colorizer/puts for HTML format only
+          @builder << modified_msg
         end
       end
+      empty_messages
+    end
 
-      def before_features(features)
-        @step_count = features && features.step_count || 0
+    def embed_image(src, label)
+      id = "img_#{@img_id}"
+      modified_src = src
+      modified_src = modified_src.split(',')
+      modified_src = modified_src.drop(1) unless modified_src.size != 2
+      modified_src = modified_src[0]
+      @img_id += 1
+      @builder.span(:class => 'embed') do |pre|
+        pre << %{<a href="" onclick="img=document.getElementById('#{id}'); img.style.display = 'none'; window.open('#{modified_src}', '_blank');return false">#{label}</a><br>&nbsp;
+        <img id="#{id}" style="display: none" src="#{modified_src}"/>} unless label == 'Screenshot' # if you want the image to show up on the same page change to: img.style.display = (img.style.display == 'none' ? 'block' : 'none')
+      end
+    end
 
-        # <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-        @builder.declare!(
-            :DOCTYPE,
-            :html,
-            :PUBLIC,
-            '-//W3C//DTD XHTML 1.0 Strict//EN',
-            'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
-        )
+    def before_features(features)
+      @step_count = features && features.step_count || 0
 
-        @builder << '<html xmlns ="http://www.w3.org/1999/xhtml">'
-        @builder.head do
-          @builder.meta('http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8')
-          @builder.title 'Cucumber'
-          inline_css
-          inline_js
+      # <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+      @builder.declare!(
+          :DOCTYPE,
+          :html,
+          :PUBLIC,
+          '-//W3C//DTD XHTML 1.0 Strict//EN',
+          'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'
+      )
+
+      @builder << '<html xmlns ="http://www.w3.org/1999/xhtml">'
+      @builder.head do
+        @builder.meta('http-equiv' => 'Content-Type', :content => 'text/html;charset=utf-8')
+        @builder.title 'Cucumber'
+        inline_css
+        inline_js
+      end
+      @builder << '<body>'
+      @builder << "<!-- Step count #{@step_count}-->"
+      @builder << '<div class="cucumber">'
+      @builder.div(:id => 'cucumber-header') do
+        @builder.div(:id => 'label') do
+        @builder.h1('Cucumber Features')
         end
-        @builder << '<body>'
-        @builder << "<!-- Step count #{@step_count}-->"
-        @builder << '<div class="cucumber">'
-        @builder.div(:id => 'cucumber-header') do
-          @builder.div(:id => 'label') do
-            @builder.h1('Cucumber Features')
-          end
-          @builder.div(:id => 'summary') do
-            @builder.p('',:id => 'totals')
-            @builder.p('',:id => 'duration')
-          end
-        end
-        @builder.div(:id => 'expand-collapse') do
-          @builder.p('Hide Passing', :id => 'hide_passing', :class => 'hide_passing')
-          @builder.p('Hide Failing', :id => 'hide_failing', :class => 'hide_failing')
-          @builder.p('Hide Pending', :id=> 'hide_pending', :class => 'hide_pending')
+        @builder.div(:id => 'summary') do
+          @builder.p('',:id => 'totals')
+          @builder.p('',:id => 'duration')
         end
       end
+      @builder.div(:id => 'expand-collapse') do
+        @builder.p('Hide Passing', :id => 'hide_passing', :class => 'hide_passing')
+        @builder.p('Hide Failing', :id => 'hide_failing', :class => 'hide_failing')
+        @builder.p('Hide Pending', :id=> 'hide_pending', :class => 'hide_pending')
+      end
+    end
 
-      def inline_js_content
-        <<-EOF
+    def inline_js_content
+      <<-EOF
 
   SCENARIOS = "h3[id^='scenario_'],h3[id^=background_]";
   FAILED_SCENARIOS = "h3[style*='rgb(196, 13, 13)']";
@@ -188,9 +187,8 @@ module Cucumber
     $('#'+element_id).css('color', '#000000');
   }
 
-        EOF
-      end
-
+      EOF
     end
+
   end
 end
