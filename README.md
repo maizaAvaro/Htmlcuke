@@ -8,7 +8,7 @@ The formatter also embeds a screenshot link of the last window focused in a fail
 
 Add this line to your application's Gemfile:
 
-    gem 'htmlcuke ~> 2.0.3'
+    gem 'htmlcuke', '~> 2.0.3'
 
 And then execute:
 
